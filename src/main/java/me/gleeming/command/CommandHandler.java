@@ -61,6 +61,12 @@ public class CommandHandler {
         });
     }
 
+    @SneakyThrows
+    public static void registerProcessors(Processor<?> processorClass, Plugin plugin) {
+        CommandHandler.setPlugin(plugin);
+        ParamProcessor.createProcessor(processorClass);
+    }
+
     /**
      * Registers processors based off a file path
      * @param path Path
