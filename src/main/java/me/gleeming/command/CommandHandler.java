@@ -1,8 +1,6 @@
 package me.gleeming.command;
 
 import com.google.common.reflect.ClassPath;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.SneakyThrows;
 import me.gleeming.command.help.Help;
 import me.gleeming.command.help.HelpNode;
@@ -11,10 +9,10 @@ import me.gleeming.command.paramter.ParamProcessor;
 import me.gleeming.command.paramter.Processor;
 import org.bukkit.plugin.Plugin;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class CommandHandler {
-    @Getter @Setter private static Plugin plugin;
+    private static Plugin plugin;
 
     /**
      * Registers commands based off a file path
@@ -82,4 +80,11 @@ public class CommandHandler {
                 });
     }
 
+    public static Plugin getPlugin() {
+        return CommandHandler.plugin;
+    }
+
+    public static void setPlugin(Plugin plugin) {
+        CommandHandler.plugin = plugin;
+    }
 }
